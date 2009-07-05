@@ -84,3 +84,11 @@ padding-bottom:2px;
 #upload-form{
     padding-bottom:20px;
 }
+.comment-body{
+    padding-top:20px;
+    padding-left:20px;
+}
+.comment-body textarea{
+    width: 500px;
+    height: 150px;
+}

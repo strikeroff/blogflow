@@ -13,6 +13,7 @@
 
 
     <%= stylesheet_link_tag("post", "tags") %>
+    <%= (yield :ext_head) ||"" %>
 </head>
 
 <body>
@@ -25,7 +26,7 @@
             <td valign="top" width="80%">
                 <%= yield %>
             </td>
-            <td  valign="top">
+            <td valign="top">
                 <%= render :partial=>"tags/tag_cloud" %>
             </td>
         </tr>

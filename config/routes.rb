@@ -39,11 +39,14 @@ ActionController::Routing::Routes.draw do |map|
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
   # consider removing the them or commenting them out if you're using named routes and resources.
   map.root :controller=>"main"
-  map.resources :posts
+  map.resources :posts do |posts|
+     posts.resources :comments, :requirements=>{:model_name=>'Post'}
+  end
 #  map.upload_file_save "posts/upload_file_save",:controller=>"posts",:action=>"upload_file_save"
   map.resource :user_session
   map.resources :users
   map.resources :assets
+#  map.resources :comments
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 end

@@ -1,0 +1,26 @@
+.comment-list {
+    padding-top: 30px;
+    padding-left: 60px;
+}
+
+.comment {
+    width: 650px;
+    border: 1px groove black;
+    margin-bottom:20px;
+}
+
+.comment-head {
+    background-color: #EFEFEF;
+    height: 30px;
+}
+
+.comment-author {
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
+.comment-content {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom:10px;
+}

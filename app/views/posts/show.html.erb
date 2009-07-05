@@ -1,8 +1,12 @@
+<% content_for :ext_head, stylesheet_link_tag("comments") %>
 <div class="post-show ">
     <%= flash_messages %>
 
     <div class="post-attribute post-title">
         <%= @object.title %>
+    </div>
+    <div class="post-attribute">
+        <%="Автор: #{@object.author.login }" %>
     </div>
 
     <div class="post-attribute">
@@ -19,7 +23,7 @@
 
     <div class="post-attribute">
 
-        <%= render :partial=>"assets/assets_list",:locals=>{:assets=>@object.assets}%>
+        <%= render :partial=>"assets/assets_list", :locals=>{:assets=>@object.assets} %>
     </div>
 
     <div class="post-attribute">
@@ -29,6 +33,28 @@
         <%= link_to "Удалить", post_url(@object), :method => :delete, :confirm => "Вы действительно хотите удалить пост?" %>
     </div>
 
+    <div class="add-comment">
+        <% form_for :comment, :url=>post_comments_url(:post_id=> @object.id) do |f| %>
+            <!--<div class="post-attribute">-->
+                <!--<%#= f.text_field :title %>-->
+            <!--</div>-->
+            <div class="comment-body">
+                <%= f.text_area :body %>
+                <%= submit_tag "Комментировать" %>
+            </div>
+
+        <% end %>
+    </div>
+
+    <div class="comment-list">
+        <% comments = @object.comments%>
+        <%unless  comments.blank?%>
+            <p>Комментарии:</p> 
+        <% comments.each do |comment| %>
+            <%= render :partial=> "comments/comment", :locals=>{:comment=>comment} %>
+        <% end %>
+        <% end %>
+    </div>
 
 </div>
 

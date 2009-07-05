@@ -1,0 +1,10 @@
+<div class="comment" id="comment<%= comment.id %>">
+    <%= content_tag :div,
+            content_tag( :div,
+                    "#{comment.user.login} оставил коммент в #{comment.created_at.strftime("%d.%m.%Y %H:%M")}",
+                    :class=>"comment-author"),
+            :class=>"comment-head" %>
+
+    <%#= content_tag :h4, comment.title %>
+    <%= content_tag :div, comment.body, :class=>"comment-content" %>
+</div>
