@@ -1,2 +1,11 @@
 Blog flow
-There is only silence here... now
+It is a simple blog application. It has tags  and multiple file upload.So as comments for posts too =)
+ Installation
+
+1) clone repository
+2)rub rake gems:install
+3)rake db:create
+4)rake db:migrate
+5)ruby script/server
+
+ Enjoy =)
