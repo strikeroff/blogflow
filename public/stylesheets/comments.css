@@ -24,3 +24,11 @@
     padding-left: 10px;
     padding-bottom:10px;
 }
+
+.add-comment{
+    width:500px;
+}
+.submit{
+ float:right;
+    padding-top:10px;
+}
