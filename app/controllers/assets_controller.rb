@@ -34,9 +34,18 @@ class AssetsController < ApplicationController
       format.html do
         render :update do |page|
           # update the page deleting element
-          page.replace_html "asset_#{asset.id}","Удалено"
+          page.replace_html "asset_#{asset.id}", "Удалено"
         end
       end
     end
+  end
+
+  def download
+    @asset = Asset.find(params[:id])
+    send_file("#{RAILS_ROOT}/public/documents/#{@asset.id}/original/#{@asset.document_file_name}",
+            :disposition => 'attachment',
+            :encoding => 'utf8',
+            :type => @asset.document_content_type,
+            :filename => URI.encode(@asset.document_file_name))
   end
 end

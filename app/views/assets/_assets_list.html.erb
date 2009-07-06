@@ -1,3 +1,2 @@
-
-        <%= content_tag( :p, "Прикрепленные файлы")  unless assets.blank? %>
-        <%= content_tag(:ul, assets.collect{|asset|content_tag(:li, asset.document_file_name )}.join(" "),:class=>"assets_list") unless assets.blank? %>
+<%= content_tag( :p, "Прикрепленные файлы")  unless assets.blank? %>
+<%= content_tag(:ul, assets.collect{|asset|content_tag(:li, link_to(asset.document_file_name, asset_download_url(asset) ))}.join(" "), :class=>"assets_list") unless assets.blank? %>

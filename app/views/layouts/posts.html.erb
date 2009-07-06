@@ -5,7 +5,7 @@
 <head>
 
 
-    <title><%= params[:title_caption] %></title>
+    <title><%= (yield :title) || "Блоги" %></title>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
     <%= stylesheet_link_tag("user-site", "main", "errors") %>
     <%= init_tinymce_hammer_if_required %>
