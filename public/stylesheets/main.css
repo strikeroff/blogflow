@@ -1,8 +1,5 @@
 #content {
-    padding-bottom: 86px; /*padding-top: 60px;*/
-/*padding-left:30px;*/
-/*padding-right:30px;*/
-/*border: 1px solid darkolivegreen; */
+    padding-bottom: 220px;
 }
 
 .inside {
@@ -16,10 +13,22 @@
     margin-top: 5px;
 }
 
+.header {
+  text-align: right;
+  height: 3.5em;
+  border-bottom: 1px solid gray;
+  background-color: #FFF0F0;
+}
+
 .login-state {
-    float: right;
+    text-align: right;
     padding-right: 30px;
     padding-top: 10px;
-    color:white;
+}
+
+.login-state img {
+  position: relative; 
+  top: 3px;
+  margin-left: 20px;
 }
 

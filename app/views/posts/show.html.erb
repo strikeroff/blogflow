@@ -3,18 +3,24 @@
 <div class="post-show ">
     <%= flash_messages %>
 
+    
+    <div class="post-attribute author">
+        <%="Автор: #{@object.author.login }" %>
+    </div>
+    
     <div class="post-attribute post-title">
         <%= @object.title %>
     </div>
-    <div class="post-attribute">
-        <%="Автор: #{@object.author.login }" %>
+    
+    <div class="post-attribute attached-files">
+        <%= render :partial=>"assets/assets_list", :locals=>{:assets=>@object.assets} %>
     </div>
 
-    <div class="post-attribute">
+    <div class="post-attribute body">
         <%= @object.body %>
     </div>
 
-    <div class="post-attribute">
+    <div class="post-attribute tags">
         <% tag_list =  @object.tag_list %>
         <%= "Теги: "unless tag_list.blank? %>
         <% tag_list.each do |tag| %>
@@ -22,31 +28,10 @@
         <% end %>
     </div>
 
-    <div class="post-attribute">
-
-        <%= render :partial=>"assets/assets_list", :locals=>{:assets=>@object.assets} %>
-    </div>
-
-    <div class="post-attribute">
-        <%= link_to "Редактировать", edit_post_url(@object) %>
-    </div>
-    <div class="post-attribute">
-        <%= link_to "Удалить", post_url(@object), :method => :delete, :confirm => "Вы действительно хотите удалить пост?" %>
-    </div>
-
-    <div class="add-comment">
-        <% form_for :comment, :url=>post_comments_url(:post_id=> @object.id) do |f| %>
-            <!--<div class="post-attribute">-->
-                <!--<%#= f.text_field :title %>-->
-            <!--</div>-->
-            <div class="comment-body">
-                <%= f.text_area :body %>
-                <div class="submit">
-                <%= submit_tag "Комментировать" %>
-                    </div>
-            </div>
-
-        <% end %>
+    <div class="post-tools">
+        Вы можете
+        <%= link_to "отредактировать", edit_post_url(@object) %> это сообщение или же вообще
+        <%= link_to "удалить", post_url(@object), :method => :delete, :confirm => "Вы действительно хотите удалить пост?" %> его.
     </div>
 
     <div class="comment-list">
@@ -58,6 +43,32 @@
         <% end %>
         <% end %>
     </div>
+    <div class="comment-tools">
+      Вы хотите принять участие в обсуждении этого сообщения, но не можете? <a href="#add-comment">Можете</a>!
+    </div>
+    <div class="add-comment">
+      <a name="add-comment"></a>
+        <% form_for :comment, :url=>post_comments_url(:post_id=> @object.id) do |f| %>
+          <div class="comment-body">
+            <%= f.text_area :body %>
+            <div class="submit">
+            <%= submit_tag "Комментировать" %> или <a href="#add-comment">нет</a> — вот в чем вопрос!
+            </div>
+          </div>
+        <% end %>
+    </div>
+    
+    <script language="javascript">
+      function toggle_comments() {
+        $(".comment-tools").toggle();
+        $(".add-comment").toggle();
+      }
+      $(function(){
+        $(".comment-tools a").click(toggle_comments);
+        $(".add-comment a").click(toggle_comments);
+      });
+    </script>
+
 
 </div>
 

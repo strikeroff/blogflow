@@ -1,7 +1,7 @@
 .post-show {
     /*padding-top: 30px;*/
     padding-left: 50px;
-    padding-right: 50px;
+    padding-right: 15em;
 }
 #content{
     padding-top: 30px;
@@ -12,8 +12,49 @@
 }
 
 .post-attribute {
+/*
     padding-top: 20px;
     padding-left: 20px;
+*/
+}
+
+.post-attribute.author {
+  color: gray;
+  float: right;
+  position: relative;
+  top: 1.2em;
+}
+
+.post-attribute.attached-files {
+  width: 20em;
+  clear: both;
+  float: right;
+  text-align: right;
+  padding: 0em 0.5em;
+  margin: 2em 0em 2em 2em;
+  background-color: #F0F0F0;
+}
+
+.post-attribute.attached-files p {
+  margin-bottom: 0px;
+  font-weight: bold;
+}
+
+.post-attribute.body {
+  font-size: 130%;
+  padding: 2em 0;
+  clear: left;
+}
+
+.post-attribute.tags {
+  clear: right;
+  padding-top: 1em;
+}
+
+.post-tools {
+  color: #666;
+  font-style: italic;
+  
 }
 
 .post-attribute input {
@@ -25,7 +66,10 @@
 }
 
 .post-title {
-    font-size: 18px;
+    font-size: 250%;
+    float: left;
+    font-family: "Times New Roman";
+    border-bottom: 1px dotted gray;
 }
 
 .post-list tr td {
@@ -67,7 +111,10 @@ padding-bottom:2px;
 .assets_list{
     list-style-image: none;
     list-style-position: inside;
-    list-style-type: decimal; 
+    /*list-style-type: decimal; */
+    list-style-type: none;
+    padding-left: 0px;
+    margin-top: 0px;
 }
 .post-upload-form{
     padding-top: 20px;
@@ -84,10 +131,15 @@ padding-bottom:2px;
 #upload-form{
     padding-bottom:20px;
 }
-.comment-body{
-    padding-top:20px;
-    padding-left:20px;
+
+.comment-list {
+  margin-top: 2em;
 }
+
+.comment-list p {
+  font-weight: bold;
+}
+
 .comment-body textarea{
     width: 500px;
     height: 150px;

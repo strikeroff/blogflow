@@ -135,11 +135,11 @@ a{
     
     position: absolute;
     bottom: 0;
-    height: 85px;
+    height: 190px;
     width: 100%;
 
     border-top: 1px solid #e0dee1;
-    padding-top: 20px;
+    padding-top: 10px;
      /*border: 1px solid lightsalmon;*/
 }
 
