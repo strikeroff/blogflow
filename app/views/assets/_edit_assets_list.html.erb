@@ -1,0 +1,10 @@
+<%= content_tag( :p, "Прикрепленные файлы")  unless assets.blank? %>
+
+<% lis = assets.collect do  |asset|
+    content_tag(:li,
+            asset.document_file_name +
+                    hidden_field_tag("assets[asset_#{asset.id}]", :"asset_#{asset.id}") +
+                    link_to_remote("Удалить", :url=>asset_path(asset.id), :method=> :delete, :confirm=>"Правда удалить?"),
+            :id=> "asset_#{asset.id}")
+end.join(" ") %>
+<%= content_tag(:ul, lis, :class=>"assets_list") unless assets.blank? %>

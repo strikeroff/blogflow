@@ -1,0 +1,41 @@
+<link type="text/css" rel="stylesheet" media="screen" href="<%= Gionet.conf.sites.inplace_site %>/stylesheets/common_partials/login_form.css"/>
+<script src="<%= Gionet.conf.sites.inplace_site %>/javascripts/common_partials/login.js" type="text/javascript"></script>
+
+<%#= javascript_include_tag 'login.js' %>
+<div id="login-form">
+    <% @user_session ||= UserSession.new %>
+    <% form_for @user_session, :url=>user_session_url do |f| %>
+
+        <div class="title-auth">
+            <span>Авторизация</span>
+            <!--<label for="remember-me" class="remember-me">запомнить</label>-->
+            <!-- <input id="remember-me" type="checkbox" name="remember-me" value="1"/>-->
+
+            <!--<input class="item-input" type="text" name="login" value="логин"/>-->
+            <%= f.text_field :login, :class=>"item-input", :value=>"Логин" %>
+            <%= f.password_field :password, :class=>"item-input" %>
+            <div>
+                <%= f.check_box(:remember_me) << " Remember me" %>
+                <%= link_to "Зарегистрироваться", new_user_url %>
+            </div>
+            <%= submit_tag 'Войти', :class=>'submit' %>
+        </div>
+    <% end %>
+    <!--</form>-->
+</div>
+
+
+<div class="come-in">
+    <% user_ico  =  options[:user_ico] || "#{Gionet.conf.sites.inplace_site}/images/top_menu/ico-user.png" %>
+    <% login_ico  = options[:login_ico] || "#{Gionet.conf.sites.inplace_site}/images/top_menu/log.png" %>
+    <% if user_logged_in? %>
+        <img src="<%= user_ico %>" alt="">
+        <%= current_user.login %>
+        <img src="<%= login_ico %>" alt="">
+        <%= link_to "Выйти", user_session_url, :class=>"logout", :method=>:delete %>
+    <% else %>
+        <%#= image_tag "top_menu/login.gif" %>
+        <img src="<%= login_ico %>" alt="">
+        <%= link_to "Войти", "#", :id=>"login-link", :class=>"logout" %>
+    <% end %>
+</div>

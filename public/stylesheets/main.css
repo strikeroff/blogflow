@@ -1,0 +1,25 @@
+#content {
+    padding-bottom: 86px; /*padding-top: 60px;*/
+/*padding-left:30px;*/
+/*padding-right:30px;*/
+/*border: 1px solid darkolivegreen; */
+}
+
+.inside {
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.sign {
+/*text-align: center;*/
+    margin-top: 5px;
+}
+
+.login-state {
+    float: right;
+    padding-right: 30px;
+    padding-top: 10px;
+    color:white;
+}
+

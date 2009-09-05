@@ -1,0 +1,18 @@
+.small {
+    font-size: 1.0em;
+}
+
+.medium {
+    font-size: 1.2em;
+}
+
+.middle {
+    font-size: 1.4em;
+}
+
+.big {
+    font-size: 1.6em;
+}
+.tag-cloud{
+    padding-left:20px;
+}

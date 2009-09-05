@@ -1,0 +1,86 @@
+.post-show {
+    /*padding-top: 30px;*/
+    padding-left: 50px;
+    padding-right: 50px;
+}
+#content{
+    padding-top: 30px;
+}
+
+.grey {
+    background-color: #EFEFEF;
+}
+
+.post-attribute {
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+.post-attribute input {
+    width: 500px;
+}
+
+.post-attribute .input-label {
+    padding-bottom: 20px;
+}
+
+.post-title {
+    font-size: 18px;
+}
+
+.post-list tr td {
+    padding-bottom: 5px;
+}
+
+.post-list-item {
+    border-bottom: 1px silver dotted;
+    padding-bottom: 5px;
+    clear: both;
+    list-style-image: none;
+    list-style-position: inside;
+    list-style-type: none;
+}
+
+.post-list-time {
+    float: right;
+}
+
+.post-actions {
+    padding-top: 30px;
+    padding-left: 20px;
+}
+
+.post-item-title {
+
+}
+
+.post-list-title {
+border-bottom:1px solid gray;
+color:#342D7E;
+font-size:17px;
+font-weight:bold;
+padding-bottom:2px;
+}
+.post-list{
+    padding-top:10px;
+}
+.assets_list{
+    list-style-image: none;
+    list-style-position: inside;
+    list-style-type: decimal; 
+}
+.post-upload-form{
+    padding-top: 20px;
+    
+}
+.edit{
+    margin-left:20px;
+    margin-right:20px;
+    
+}
+.upd-title{
+    padding-top:20px;
+}
+#upload-form{
+    padding-bottom:20px;
+}

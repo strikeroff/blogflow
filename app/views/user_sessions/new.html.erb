@@ -1,0 +1,56 @@
+<% content_for :ext_head, stylesheet_link_tag("users") %>
+<div id="content">
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+        <tr>
+            <td width="25%">
+
+            </td>
+            <td width="50%">
+
+                <% form_for @user_session, :url => user_session_url do |f| %>
+                    <h3>Вход в систему</h3>
+                    <div class="user-form-input">
+                        <%#="Неверная пара логин-пароль" unless f.error_messages.blank? %>
+                        <%=f.error_messages%>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="login-table">
+
+                        <tr>
+                            <td>
+                                <label>Логин</label>
+                            </td>
+                            <td>
+                                <%= f.text_field :login %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Пароль</label>
+                            </td>
+                            <td>
+                                <%= f.password_field :password %>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <%= f.check_box(:remember_me) << " Remember me" %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <%= link_to "Зарегистрироваться",new_user_url%>
+                            </td>
+                        </tr>
+                        
+                    </table>
+                    <%= submit_tag "Войти" %>
+
+                <% end %>
+            </td>
+            <td width="25%">
+
+            </td>
+        </tr>
+    </table>
+</div>

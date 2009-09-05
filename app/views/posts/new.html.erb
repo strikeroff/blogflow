@@ -1,0 +1,75 @@
+<div class="post-show grey edit">
+    <% unless @object.new_record? %>
+
+        <div class="upd-title"><h3>Редактировать пост </h3></div>
+    <% else %>
+        <div class="upd-title"><h3>Создать новый пост </h3></div>
+    <% end %>
+    <% form_for @object do |f| %>
+
+
+        <div class="user-form-input">
+            <%= f.error_messages %>
+        </div>
+        <div class="post-attribute">
+            <div class="input-label">
+                Заголовок
+            </div>
+            <%= f.text_field :title %>
+        </div>
+        <div class="post-attribute">
+            Тело
+            <%= f.tinymce :body %>
+
+            <%#= f.text_field :title %>
+        </div>
+        <div class="post-attribute">
+            <div class="input-label">
+                Теги
+            </div>
+            <%= f.text_field :tag_list %>
+
+        </div>
+        <% unless @object.new_record? %>
+            <div class="post-attribute">
+
+                <%= render :partial=>"assets/edit_assets_list", :locals=>{:assets=>@object.assets} %>
+            </div>
+        <% end %>
+        <div class="post-attribute">
+            <p>Новые прикрепленные файлы:</p>
+            <ul id="assets">
+
+            </ul>
+        </div>
+
+        <div style="padding-top:30px;">
+            <%= submit_tag "Сохранить" %>
+        </div>
+
+
+    <% end %>
+
+    <div class="post-upload-form">
+        <%= javascript_tag '$(document).ready(function(){
+           $("#upload-button").click(function(){
+                 $("#upload-form").submit();
+                });
+           });'
+        %>
+        <% form_for :asset, :url =>formatted_assets_path(:format => 'js'),
+                :html => { :multipart => true, :target => 'upload_frame', :id=>"upload-form"} do |form|
+        %>
+            <div>
+                <%= form.file_field :document %>
+                <%#= submit_tag "Сохранить" %>
+                <%= image_tag "common/upload_button.png", :id=>"upload-button", :size =>"40x40" %>
+            </div>
+        <% end %>
+        <iframe id='upload_frame' name="upload_frame" style="width:1px;height:1px;border:0px" src="about:blank"></iframe>
+    </div>
+
+</div>
+
+
+

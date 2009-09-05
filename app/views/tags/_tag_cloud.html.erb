@@ -1,0 +1,8 @@
+<div class="tag-cloud">
+    <% tag_cloud @tags, %w(small medium middle big) do |tag, css_class| %>
+        <%= link_to tag.name, { :action => :tag, :id => tag.name }, :class => css_class %>
+    <% end %>
+    <div style="padding-top:20px;">
+     <%= link_to "Весь список", posts_url, :class => "medium" %>
+        </div>
+</div>

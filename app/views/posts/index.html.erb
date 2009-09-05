@@ -1,0 +1,31 @@
+
+                 <div class="post-show ">
+         <div class="post-list-title">
+             <span>
+                  <%= (@tag_name.blank?)? "Все посты" :  "Посты c тегом #{@tag_name}" %>
+             </span>
+         </div>
+        <div class="post-list">
+            <% @posts.each do |post| %>
+                <li class="post-list-item">
+                        <!--<div class="post-item-title">-->
+                    <div class="post-list-time">
+                                          <%= post.created_at.strftime("%d.%m.%Y %H:%M")%>
+                                      </div>
+
+                        <%= link_to post.title, post_url(post) -%>
+
+                        <%user  =  @users_in_list.select{|u|u.id == post.author_id}.first  -%>
+                    создан
+                        <%= "#{user.login}'ом" unless user.blank?-%>
+                             <!--</div>-->
+
+                </li>
+            <% end %>
+        </div>
+        <div class="post-actions">
+            <%= link_to "Создать новую запись в блоге", new_post_url %>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+         

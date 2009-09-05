@@ -1,0 +1,4 @@
+<li id="asset_<%= list_item.id %>">
+    <%= list_item.document_file_name %>
+    <%= hidden_field_tag "assets[asset_#{list_item.id}]", :"asset_#{list_item.id}" %>
+</li>
